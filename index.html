@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boarding Buddy AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fc;color:#172033}
+header{background:linear-gradient(110deg,#1746a2,#2877ed);color:white;padding:20px 5%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:bold}
+nav a{color:white;text-decoration:none;margin-left:18px}
+main{max-width:1150px;margin:35px auto;padding:0 20px}
+.welcome{background:linear-gradient(120deg,#dceaff,#fff);padding:35px;border-radius:20px}
+.welcome h1{font-size:34px;margin:10px 0}
+.welcome p{color:#53647c}
+h2{margin-top:32px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:white;border:1px solid #e3e9f2;border-radius:16px;padding:22px;min-height:135px;cursor:pointer;text-align:left}
+.card:hover{border-color:#2877ed;transform:translateY(-2px)}
+.icon{font-size:28px;margin-bottom:12px}
+.card strong{display:block;margin-bottom:8px}
+.card p{color:#64748b;margin:0;font-size:14px}
+#details{margin-top:25px;padding:24px;background:white;border-radius:16px;display:none}
+footer{text-align:center;color:#8290a5;padding:35px}
+@media(max-width:600px){header{flex-direction:column;gap:12px}nav a{margin:0 7px}.welcome h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">🎓 Boarding Buddy AI</div>
+<nav><a href="#tools">Tools</a><a href="#subjects">Subjects</a></nav>
+</header>
+<main>
+<section class="welcome">
+<div style="color:#2563eb;font-weight:bold">YOUR SCHOOL COMPANION</div>
+<h1>Welcome to Boarding Buddy AI!</h1>
+<p>A smarter, friendlier way to learn, connect and explore your school.</p>
+</section>
+<h2 id="tools">Your Tools</h2>
+<div class="grid">
+<button class="card" onclick="show('Learning Pathway','Organise your learning journey here.')"><div class="icon">🧭</div><strong>Learning Pathway</strong><p>Plan your learning journey.</p></button>
+<button class="card" onclick="show('Assignments & Resources','Find your assignments and study materials here.')"><div class="icon">📝</div><strong>Assignments & Resources</strong><p>Find tasks and materials.</p></button>
+<button class="card" onclick="show('Progress Report','Your private progress report will appear here.')"><div class="icon">📊</div><strong>Progress Report</strong><p>Review your progress.</p></button>
+<button class="card" onclick="show('Student Community','Student groups and messaging will be added here.')"><div class="icon">💬</div><strong>Student Community</strong><p>Connect with other students.</p></button>
+<button class="card" onclick="show('Announcements','School announcements will appear here.')"><div class="icon">📢</div><strong>Announcements</strong><p>Keep up with school news.</p></button>
+<button class="card" onclick="show('My Calendar','Your school events and deadlines will appear here.')"><div class="icon">📅</div><strong>My Calendar</strong><p>See important dates.</p></button>
+<button class="card" onclick="show('School Map','The interactive campus map will be added here.')"><div class="icon">🗺️</div><strong>School Map</strong><p>Explore your campus.</p></button>
+<button class="card" onclick="show('AI Buddy','The AI assistant will be connected in a later development stage.')"><div class="icon">🤖</div><strong>AI Buddy</strong><p>Get learning and school-life help.</p></button>
+</div>
+<h2 id="subjects">My Subjects</h2>
+<div class="grid">
+<button class="card" onclick="subject('Physics')">⚛️ Physics</button>
+<button class="card" onclick="subject('English')">📚 English</button>
+<button class="card" onclick="subject('Mathematics')">➗ Mathematics</button>
+<button class="card" onclick="subject('Chemistry')">🧪 Chemistry</button>
+<button class="card" onclick="subject('Biology')">🧬 Biology</button>
+<button class="card" onclick="subject('Geography')">🌍 Geography</button>
+<button class="card" onclick="subject('Design')">🎨 Design</button>
+</div>
+<section id="details">
+<h2 id="detailTitle"></h2>
+<p id="detailText"></p>
+<button onclick="document.getElementById('details').style.display='none'">Close</button>
+</section>
+</main>
+<footer>Boarding Buddy AI · Student Project Prototype</footer>
+<script>
+function show(title,text){
+document.getElementById('detailTitle').textContent=title;
+document.getElementById('detailText').textContent=text;
+document.getElementById('details').style.display='block';
+document.getElementById('details').scrollIntoView({behavior:'smooth'});
+}
+function subject(name){
+show(name,'Resources Library · Choose an Assignment Type · SA Test · My Learning Tasks');
+}
+</script>
+</body>
+</html>
